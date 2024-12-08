@@ -1,0 +1,210 @@
+<html><head><base href="/" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Helados de paila - Los mejores helados artesanales</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #ffdef2, #e0f7ff);
+    }
+
+    .header {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 1rem;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        font-size: 2rem;
+        color: #ff6b9d;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #ff6b9d;
+    }
+
+    .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    .hero-content {
+        max-width: 800px;
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+        color: #333;
+        margin-bottom: 1rem;
+    }
+
+    .ice-cream {
+        width: 100px;
+        height: 150px;
+        margin: 2rem auto;
+        position: relative;
+    }
+
+    .scoop {
+        width: 80px;
+        height: 80px;
+        background: #ff9ecd;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 10px;
+        animation: wobble 3s infinite;
+    }
+
+    .cone {
+        width: 0;
+        height: 0;
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        border-top: 80px solid #f4d03f;
+        position: absolute;
+        bottom: 0;
+        left: 10px;
+    }
+
+    @keyframes wobble {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(5px); }
+    }
+
+    .flavors {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        padding: 4rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .flavor-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        text-align: center;
+        width: 300px;
+        transition: transform 0.3s;
+    }
+
+    .flavor-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem;
+        margin-top: 4rem;
+    }
+
+</style>
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <div class="logo">🍦 Heladería Deliciosa</div>
+            <div class="nav-links">
+                <a href="#sabores">Sabores</a>
+                <a href="#ubicacion">Ubicación</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Los mejores helados artesanales y juegos naturales</h1>
+            <p>Descubre sabores únicos hechos con ingredientes naturales</p>
+            <div class="ice-cream">
+                <div class="scoop"></div>
+                <div class="cone"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sabores" class="flavors">
+        <div class="flavor-card">
+            <h3>vainilla</h3>
+            <p>Elaborado con el mejor procediomiento</p>
+            <span class="price">$2.50</span>
+        </div>
+        <div class="flavor-card">
+            <h3>Jugo tamarindo</h3>
+            <p>Con vainilla natural </p>
+            <span class="price">$1.00</span>
+        </div>
+        <div class="flavor-card">
+            <h3>Jugo de Piña</h3>
+            <p>Con piñas frescas de temporada</p>
+            <span class="price">$1.00</span>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>🍦 Heladería Deliciosa | Todos los derechos reservados 2024</p>
+        <p>Dirección: Calle Alberto Gomez</p>
+        <p></p>
+    </footer>
+
+    <script>
+        // Animación suave para el scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Añadir efecto de parallax al scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.querySelector('.hero-content').style.transform = 
+                `translateY(${scrolled * 0.4}px)`;
+        });
+    </script>
+</body>
+</html>
